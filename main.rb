@@ -3,13 +3,13 @@ require_relative './modules/games_module'
 require_relative './modules/authors_module'
 require_relative './modules/book_module'
 require_relative './modules/label_module'
-require_relative './app.rb'
+require_relative './app'
 
 class Main
   include GamesModule
   include AuthorsModule
-include BookModule
-include LabelModule
+  include BookModule
+  include LabelModule
 
   def initialize
     @authors = load_authors

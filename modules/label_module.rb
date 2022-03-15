@@ -19,7 +19,7 @@ module LabelModule
   def create_label
     data = []
     @labels.each do |label|
-      data.push({ title: label.title, color: label.color})
+      data.push({ title: label.title, color: label.color })
     end
     open('./data/label.json', 'w') { |f| f << JSON.generate(data) }
   end
