@@ -1,6 +1,7 @@
 require_relative './classes/item'
 require_relative './classes/game'
 require_relative './classes/author'
+require_relative './classes/book'
 
 def list_all_games
   puts 'Games:'
@@ -37,4 +38,18 @@ def list_all_books
     puts "Publisher: #{book.publisher}, Publish Date: #{book.publish_date},
     Cover state: #{book.cover_state}"
   end
+end
+
+def add_book
+  print 'Please write publisher: '
+  publisher = gets.chomp
+
+  puts 'Please write date of publish [Enter date in format (yyyy-mm-dd)]'
+  publish_date = gets.chomp
+
+  puts 'Please write cover state ["good"/"bad"]'
+  cover_state = gets.chomp
+
+  @books.push(Book.new(publisher, cover_state, publish_date))
+  puts 'Book is created'
 end
