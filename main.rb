@@ -7,7 +7,7 @@ require_relative './modules/authors_module'
 
 class Main
   include GamesModule
-  include AuthorsModule  
+  include AuthorsModule
 
   def initialize
     @authors = load_authors
@@ -53,7 +53,7 @@ class Main
     @games.push(Game.new(multiplayer, publish_date, last_played_date))
     puts 'Game is created'
   end
-  
+
   def list_all_authors
     puts 'Authors:'
     @authors.each do |author|
@@ -69,45 +69,42 @@ class Main
     end
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
   def handle_input(option)
-     case option
+    case option
     when 1
       list_books
-     when 2
+    when 2
       list_all_music_album
-     when 3
+    when 3
       list_all_games
-     when 4
+    when 4
       list_all_genres
-     when 5
+    when 5
       list_labels
-     when 6
+    when 6
       list_all_authors
-     when 7
+    when 7
       add_book
-     when 8
+    when 8
       add_music_album
-     when 9
+    when 9
       add_game
-     when 10
+    when 10
       create_games
-       puts 'Thank you for using things-catalog'
-       exit
-     else
-       puts 'Invalid option! Please try again.'
-     end  
+      puts 'Thank you for using things-catalog'
+      exit
+    else
+      puts 'Invalid option! Please try again.'
+    end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity, Metrics/MethodLength
 
-  
   def main
     puts 'Welcome to out things-catalog app!'
     print_options
   end
-
-  
-    
 end
-
 
 catalog = Main.new
 
