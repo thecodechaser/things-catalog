@@ -53,3 +53,10 @@ def add_book
   @books.push(Book.new(publisher, cover_state, publish_date))
   puts 'Book is created'
 end
+
+def list_all_labels
+  puts 'There are no labels yet!' if @labels.empty?
+  @labels.each do |label|
+    puts "Title: #{label.title}, Color: #{label.color}"
+  end
+end
