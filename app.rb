@@ -30,3 +30,11 @@ def list_all_authors
     puts "first name: #{author.first_name}, last name: #{author.last_name}"
   end
 end
+
+def list_all_books
+  puts 'There are no books yet!' if @books.empty?
+  @books.each do |book|
+    puts "Publisher: #{book.publisher}, Publish Date: #{book.publish_date},
+    Cover state: #{book.cover_state}"
+  end
+end

@@ -10,6 +10,7 @@ class Main
   def initialize
     @authors = load_authors
     @games = load_games
+    @books = []
   end
 
   INPUT_MESSAGE = 'Please select an option by number'.freeze
@@ -34,7 +35,7 @@ class Main
   def handle_input(option)
     case option
     when 1
-      list_books
+      list_all_books
     when 2
       list_all_music_album
     when 3
