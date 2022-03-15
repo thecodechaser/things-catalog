@@ -1,16 +1,18 @@
 require 'json'
 require_relative './modules/games_module'
 require_relative './modules/authors_module'
+require_relative './modules/book_module'
 require_relative './app.rb'
 
 class Main
   include GamesModule
   include AuthorsModule
+include BookModule
 
   def initialize
     @authors = load_authors
     @games = load_games
-    @books = []
+    @books = load_book
   end
 
   INPUT_MESSAGE = 'Please select an option by number'.freeze
@@ -54,6 +56,7 @@ class Main
       add_game
     when 10
       create_games
+      create_book
       puts 'Thank you for using things-catalog'
       exit
     else
