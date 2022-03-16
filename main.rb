@@ -1,4 +1,3 @@
-require 'json'
 require_relative './modules/games_module'
 require_relative './modules/authors_module'
 require_relative './modules/book_module'
@@ -26,8 +25,8 @@ class Main
 
   def save_data
     create_games
-      create_book
-      create_music_album
+    create_book
+    create_music_album
   end
 
   INPUT_MESSAGE = 'Please select an option by number'.freeze
@@ -86,5 +85,4 @@ class Main
 end
 
 catalog = Main.new
-
 catalog.main
