@@ -12,3 +12,9 @@ CREATE TABLE music_albums (
     FOREIGN KEY(id) REFERENCES item(id)
 );
 
+CREATE TABLE labels (
+    id  INT GENERATED ALWAYS AS IDENTITY,
+    title VARCHAR(100),
+    color VARCHAR(100),
+    PRIMARY KEY(id)
+);
