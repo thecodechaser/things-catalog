@@ -2,6 +2,8 @@ require_relative './classes/item'
 require_relative './classes/game'
 require_relative './classes/author'
 require_relative './classes/book'
+require_relative './classes/genre'
+require_relative './classes/music_album'
 
 def list_all_games
   puts 'Games:'
@@ -58,5 +60,34 @@ def list_all_labels
   puts 'There are no labels yet!' if @labels.empty?
   @labels.each do |label|
     puts "Title: #{label.title}, Color: #{label.color}"
+  end
+end
+
+def list_all_music_album
+  puts 'Music Albums:'
+  @music_albums.each do |music_album|
+    puts "Name: #{music_album.name}, Publish Date: #{music_album.publish_date},
+    On Spotify: #{music_album.on_spotify}"
+  end
+end
+
+def add_music_album
+  puts 'Album name: '
+  name = gets.chomp
+
+  puts 'Date of publish [Enter date in format (yyyy-mm-dd)]'
+  publish_date = gets.chomp
+
+  puts 'Is it available on Spotify? Y/N'
+  on_spotify = gets.chomp.downcase == 'y' || false
+
+  @music_albums.push(MusicAlbum.new(name, on_spotify, publish_date))
+  puts 'Music album created'
+end
+
+def list_all_genres
+  puts 'Genres:'
+  @load_genres.each do |genre|
+    puts "Genre name: #{genre.name}"
   end
 end
