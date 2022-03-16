@@ -4,7 +4,7 @@ require 'yaml'
 
 describe Game do
   before :each do
-    @game = Game.new 'multiplayer', '2002-01-01', '2002-02-01'
+    @game = Game.new 'multiplayer', '1964-01-01', '2002-02-01'
   end
 
   it 'game should be an instance of game class' do

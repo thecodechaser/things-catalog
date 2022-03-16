@@ -12,7 +12,7 @@ class Game < Item
 
   def can_be_archived?
     current_year = Time.new.year
-    publish_year = Date.strptime(@publish_date, '%Y-%m-%d').strftime('%Y').to_i
-    current_year - publish_year >= 10
+    last_played_date = Date.strptime(@last_played_date, '%Y-%m-%d').strftime('%Y').to_i
+    (current_year - last_played_date) > 2 && super
   end
 end
