@@ -1,8 +1,9 @@
-require 'json'
 require_relative './modules/games_module'
 require_relative './modules/authors_module'
 require_relative './modules/book_module'
 require_relative './modules/label_module'
+require_relative './modules/music_album_module'
+require_relative './modules/genres_module'
 require_relative './app'
 
 class Main
@@ -10,12 +11,22 @@ class Main
   include AuthorsModule
   include BookModule
   include LabelModule
+  include MusicAlbumModule
+  include GenreModule
 
   def initialize
     @authors = load_authors
     @games = load_games
     @books = load_book
     @labels = load_label
+    @music_albums = load_music_albums
+    @load_genres = load_genres
+  end
+
+  def save_data
+    create_games
+    create_book
+    create_music_album
   end
 
   INPUT_MESSAGE = 'Please select an option by number'.freeze
@@ -58,8 +69,7 @@ class Main
     when 9
       add_game
     when 10
-      create_games
-      create_book
+      save_data
       puts 'Thank you for using things-catalog'
       exit
     else
@@ -75,5 +85,4 @@ class Main
 end
 
 catalog = Main.new
-
 catalog.main
