@@ -31,7 +31,7 @@ class Main
 
   INPUT_MESSAGE = 'Please select an option by number'.freeze
   def print_options
-  puts "  1 - List all books
+    puts "  1 - List all books
   2 - List all music albums
   3 - List of games
   4 - List all genres

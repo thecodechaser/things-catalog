@@ -4,7 +4,7 @@ require 'date'
 
 describe Label do
   context 'When testing the Label class' do
-    book = Book.new('publisher', 'bad', Date.parse('2022/3/14'))
+    book = Book.new('The Universe', 'publisher', 'bad', Date.parse('2022/3/14'))
     label = Label.new('Book-label', 'Yellow')
 
     it 'Should validate the label title' do
