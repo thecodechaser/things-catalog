@@ -37,12 +37,15 @@ end
 def list_all_books
   puts 'There are no books yet!' if @books.empty?
   @books.each do |book|
-    puts "Publisher: #{book.publisher}, Publish Date: #{book.publish_date},
+    puts "Title: #{book.title}, Publisher: #{book.publisher}, Publish Date: #{book.publish_date},
     Cover state: #{book.cover_state}"
   end
 end
 
 def add_book
+  print 'Please write title: '
+  title = gets.chomp
+
   print 'Please write publisher: '
   publisher = gets.chomp
 
@@ -52,7 +55,7 @@ def add_book
   puts 'Please write cover state ["good"/"bad"]'
   cover_state = gets.chomp
 
-  @books.push(Book.new(publisher, cover_state, publish_date))
+  @books.push(Book.new(title, publisher, cover_state, publish_date))
   puts 'Book is created'
 end
 

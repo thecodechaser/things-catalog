@@ -7,7 +7,7 @@ module BookModule
     file = './data/book.json'
     if File.exist?(file)
       JSON.parse(File.read(file)).each do |book|
-        data.push(Book.new(book['publisher'], book['cover_state'], book['publish_date']))
+        data.push(Book.new(book['title'], book['publisher'], book['cover_state'], book['publish_date']))
       end
     else
       File.write(file, [])
@@ -18,7 +18,7 @@ module BookModule
   def create_book
     data = []
     @books.each do |book|
-      data.push({ publisher: book.publisher, publish_date: book.publish_date,
+      data.push({ title: book.title, publisher: book.publisher, publish_date: book.publish_date,
                   cover_state: book.cover_state })
     end
     open('./data/book.json', 'w') { |f| f << JSON.generate(data) }

@@ -3,7 +3,11 @@ require './classes/book'
 
 describe Book do
   context 'What testing the Book class' do
-    book = Book.new('publisher', 'bad', Date.parse('2022/3/14'))
+    book = Book.new('The Universe','publisher', 'bad', Date.parse('2022/3/14'))
+
+    it 'should validate the book title' do
+      expect(book.title).to eq 'The Universe'
+    end
 
     it 'should validate the book publisher' do
       expect(book.publisher).to eq 'publisher'
