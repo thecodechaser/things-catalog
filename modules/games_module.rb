@@ -21,6 +21,6 @@ module GamesModule
       data.push({ multiplayer: game.multiplayer, publish_date: game.publish_date,
                   last_played_date: game.last_played_date })
     end
-    open('./data/games.json', 'w') { |f| f << JSON.generate(data) }
+    File.write('./data/games.json', JSON.generate(data))
   end
 end

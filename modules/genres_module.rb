@@ -21,6 +21,6 @@ module GenreModule
     @music_albums.each do |genre|
       data.push({ id: genre.id, name: genre.name })
     end
-    open('./data/genres.json', 'w') { |f| f << JSON.generate(data) }
+    File.write('./data/genres.json', JSON.generate(data))
   end
 end

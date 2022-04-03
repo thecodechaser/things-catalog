@@ -21,6 +21,6 @@ module BookModule
       data.push({ title: book.title, publisher: book.publisher, publish_date: book.publish_date,
                   cover_state: book.cover_state })
     end
-    open('./data/book.json', 'w') { |f| f << JSON.generate(data) }
+    File.write('./data/book.json', JSON.generate(data))
   end
 end

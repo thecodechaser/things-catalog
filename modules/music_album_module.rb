@@ -21,6 +21,6 @@ module MusicAlbumModule
     @music_albums.each do |album|
       data.push({ on_spotify: album.on_spotify, name: album.name, publish_date: album.publish_date })
     end
-    open('./data/music_album.json', 'w') { |f| f << JSON.generate(data) }
+    File.write('./data/music_album.json', JSON.generate(data))
   end
 end

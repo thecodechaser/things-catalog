@@ -21,6 +21,6 @@ module LabelModule
     @labels.each do |label|
       data.push({ title: label.title, color: label.color })
     end
-    open('./data/label.json', 'w') { |f| f << JSON.generate(data) }
+    File.write('./data/label.json', JSON.generate(data))
   end
 end
